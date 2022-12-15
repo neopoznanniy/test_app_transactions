@@ -16,6 +16,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>transactionsServlet</servlet-name>
-    <url-pattern>/meals</url-pattern>
+    <url-pattern>/transactions</url-pattern>
   </servlet-mapping>
 </web-app>

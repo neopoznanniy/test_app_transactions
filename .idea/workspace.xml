@@ -9,15 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ae5b65c-3504-48bf-8233-05633eb27401" name="Changes" comment="Initial commit.">
-      <change afterPath="$PROJECT_DIR$/src/main/solva/model/AbstractBaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/solva/model/AbstractNamedEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/solva/repository/InMemoryTransactionsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/solva/repository/TransactionRepository.java" afterDir="false" />
+    <list default="true" id="6ae5b65c-3504-48bf-8233-05633eb27401" name="Changes" comment="do refactoring jsp">
+      <change afterPath="$PROJECT_DIR$/src/main/solva/Service/TransactionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/solva/model/Limit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/solva/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/solva/repository/InMemoryProductLimitsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/solva/repository/InMemoryServiceLimitsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/solva/web/LimitServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/transactionForm.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/solva/model/AbstractBaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/solva/model/AbstractBaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/solva/model/AbstractNamedEntity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/solva/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/solva/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/solva/repository/InMemoryTransactionsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/solva/repository/InMemoryTransactionsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/solva/repository/TransactionRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/solva/web/TransactionsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/solva/web/TransactionsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/meals.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/meals.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/meals.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/transactions.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,19 +61,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Programming/Projects/test_app_transactions",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Projects/test_app_transactions&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\Projects\test_app_transactions\src\main\webapp" />
       <recent name="D:\Programming\Projects\test_app_transactions\src\main\webapp\WEB-INF\lib" />
     </key>
   </component>
@@ -169,7 +180,9 @@
       <workItem from="1671011959579" duration="1032000" />
       <workItem from="1671018227139" duration="258000" />
       <workItem from="1671018800877" duration="19000" />
-      <workItem from="1671019580167" duration="1549000" />
+      <workItem from="1671019580167" duration="8282000" />
+      <workItem from="1671038055737" duration="341000" />
+      <workItem from="1671097234312" duration="12833000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1671019706665</created>
@@ -178,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671019706665</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="do refactoring jsp">
+      <created>1671021449876</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671021449876</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +217,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
+    <MESSAGE value="do refactoring jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="do refactoring jsp" />
   </component>
 </project>

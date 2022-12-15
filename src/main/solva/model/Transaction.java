@@ -2,15 +2,17 @@ package model;
 
 import java.time.LocalDateTime;
 
+/**
+ * Объект который будет хранить данные о транзакциях. Поле limit_exceeded вычисляется на основании поля
+ * remainingMonthlyLimit в объекте Limit и expense_category транзакции.
+ */
 public class Transaction extends AbstractBaseEntity{
-
-    private Integer id;
 
     private final Integer userId;
 
-    private final Integer account_from;
+    private final Long account_from;
 
-    private final Integer account_to;
+    private final Long account_to;
 
     private final String currency_shortname;
 
@@ -22,11 +24,17 @@ public class Transaction extends AbstractBaseEntity{
 
     private boolean limit_exceeded;
 
-    //    public Transaction(Integer userId, Integer account_from, Integer account_to, String currency_shortname, Double sum, String expense_category, LocalDateTime datetime){
-//        this(null, userId, account_from, account_to, currency_shortname, sum, expense_category, datetime);
-//    }
-    public Transaction(Integer userId, Integer account_from, Integer account_to, String currency_shortname, Double sum, String expense_category, LocalDateTime datetime) {
-//        super(id);
+    public Transaction(Integer id, Integer userId, Long account_from, Long account_to, String currency_shortname, Double sum, String expense_category, LocalDateTime datetime){
+        super(id);
+        this.userId = userId;
+        this.account_from = account_from;
+        this.account_to = account_to;
+        this.currency_shortname = currency_shortname;
+        this.sum = sum;
+        this.expense_category = expense_category;
+        this.datetime = datetime;
+    }
+    public Transaction(Integer userId, Long account_from, Long account_to, String currency_shortname, Double sum, String expense_category, LocalDateTime datetime) {
         this.userId = userId;
         this.account_from = account_from;
         this.account_to = account_to;
@@ -36,11 +44,11 @@ public class Transaction extends AbstractBaseEntity{
         this.datetime = datetime;
     }
 
-    public Integer getAccount_from() {
+    public Long getAccount_from() {
         return account_from;
     }
 
-    public Integer getAccount_to() {
+    public Long getAccount_to() {
         return account_to;
     }
 

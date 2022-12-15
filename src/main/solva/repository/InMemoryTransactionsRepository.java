@@ -11,21 +11,21 @@ import java.util.stream.Collectors;
 
 
 /**
- Класс InMemoryTransactionsRepository в этом макете представляет собой обращение к БД
+ Класс InMemoryTransactionsRepository в этом макете представляет собой обращение к БД,
+ в которой хранятся все транзкции.
  */
-public class InMemoryTransactionsRepository implements TransactionRepository{
+public class InMemoryTransactionsRepository {
     Map<Integer, Transaction> repository = new ConcurrentHashMap<>();
     private final AtomicInteger counter = new AtomicInteger(0);
 
     public Transaction save(Transaction transaction, Integer userId){
-        transaction.setId(counter.incrementAndGet());
-        repository.put(transaction.getId(), transaction);
-        return transaction;
+        if(transaction.isNew()){
+            transaction.setId(counter.incrementAndGet());
+            repository.put(transaction.getId(), transaction);
+            return transaction;
+        }
+        return repository.computeIfPresent(transaction.getId(), (id, oldTransaction) -> transaction);
     }
-
-//    public boolean delete(int id, int userId){
-//        return false;
-//    }
 
     public Transaction get(int id, int userId){
         return repository.get(id);
@@ -35,7 +35,6 @@ public class InMemoryTransactionsRepository implements TransactionRepository{
         return repository.values().stream()
                 .filter(transaction -> transaction.getUserId().equals(userId))
                 .collect(Collectors.toCollection(ArrayList::new));
-//                .collect(Collectors.toList());
     }
 
     public Collection<Transaction> getWithExceeded(Integer userId){
